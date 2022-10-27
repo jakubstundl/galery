@@ -1,9 +1,9 @@
 "use strict";
 let currentIndex = 0;
 const imageCount = images.length;
-let thumbnailsIndexes = [];
 const thumbnails = document.getElementsByClassName("thumbnails-container")[0].getElementsByTagName("img");
 const thumbnailCount = document.getElementsByClassName("thumbnails-container")[0].getElementsByTagName("img").length;
+thumbnails[Math.floor(thumbnailCount / 2)].style.border = "thick solid #4e4e4e";
 const setThumbnailsIndexex = (index) => {
     let output = [];
     for (let i = -Math.floor(thumbnailCount / 2); i <= Math.floor(thumbnailCount / 2); i++) {
@@ -15,9 +15,7 @@ const setThumbnailsIndexex = (index) => {
         if (currentIndex1 < 0) {
             currentIndex1 += imageCount;
         }
-        output.push(currentIndex1);
     }
-    console.log(output);
     return output;
 };
 const indexMove = (num) => {
@@ -28,7 +26,6 @@ const indexMove = (num) => {
     if (currentIndex < 0) {
         currentIndex += imageCount;
     }
-    console.log(currentIndex);
     return currentIndex;
 };
 const setMainPicture = (index) => {
@@ -57,13 +54,11 @@ leftArrow.addEventListener("click", () => {
 });
 for (let i = 0; i < thumbnails.length; i++) {
     thumbnails[i].addEventListener("click", () => {
-        console.log(currentIndex);
         indexMove(-Math.floor(thumbnailCount / 2) + i);
         setAll();
     });
 }
 const onKeyPress = (event) => {
-    // Handle arrow keys
     switch (event.keyCode) {
         case 37:
             indexMove(-1);
@@ -75,6 +70,5 @@ const onKeyPress = (event) => {
             break;
     }
 };
-// Listen on pressing the keys
 document.addEventListener('keydown', onKeyPress);
 setAll();
