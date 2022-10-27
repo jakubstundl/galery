@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+
+    <title>Galery</title>
+</head>
+
+<body>
+    <div class="content">
+        <div class="slide-container">
+            <div id="leftArrow" class="arrow-container"><img class="arrow" src="static/arrow.svg" alt="arrow" /></div>
+            <div class="displayed-image">
+                <div class="imgContainer"><!-- <img id="mainPicture" src="static/images/IMG_20190609_114128.jpg" alt=""> -->
+                </div>
+            </div>
+            <div id="rightArrow" class="arrow-container right-arrow"><img class="arrow" src="static/arrow.svg"
+                    alt="arrow" /></div>
+
+        </div>
+        <div class="thumbnails-container">
+            <%thumbnails.forEach((thumbnail)=>{%>
+                <img class="thumbnail" src="<%=thumbnail%>" alt="">
+
+                <% })%>
+        </div>
+
+    </div>
+    <script src="/static/images.js"></script>
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
